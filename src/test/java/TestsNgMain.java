@@ -1,7 +1,4 @@
-import Tools.Elements;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import Tools.Functions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -9,31 +6,20 @@ import org.testng.annotations.Test;
 
 
 
-public class TestsNgMain extends Elements {
-public static WebDriver driver;
-
-
-
-
-
+public class TestsNgMain extends Functions {
 
     @BeforeClass (alwaysRun = true)
     public void beforeClass(){
-        driver = new ChromeDriver();
-        System.setProperty("webdriver.chrome.driver","C:\\Automation\\chromedriver.exe");
-        driver.get("https://www.seret.co.il//");
-        driver.manage().window().maximize();
+        Functions.goUrl("https://www.seret.co.il//");
     }
-
 
     @Test(groups = "InsertGroupName", priority = 1)
     public void test1() throws InterruptedException {
-    srchBtn.sendKeys("Test " + Keys.ENTER);
+        Functions.srch("Fast and Furious");
+        Thread.sleep(2000);
     }
 
 
     @AfterClass (alwaysRun = true)
-    public void afterClass() {
-    driver.quit();
-    }
+    public void afterClass() { driver.quit();}
 }
