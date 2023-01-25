@@ -15,7 +15,10 @@ public class TestsNgMain extends Functions {
 
     @Test(groups = "InsertGroupName", priority = 1)
     public void test1() throws InterruptedException {
-        Functions.srch("Fast and Furious");
+        Functions.srch("Batman");
+        Thread.sleep(2000);
+        Functions.srchClear();
+        Functions.srch("Superman");
         Thread.sleep(2000);
     }
 
